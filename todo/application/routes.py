@@ -1,17 +1,17 @@
 from application import app, db
 from application.models import Todo
-from flask import Flask, render_template
+from flask import render_template
 
 
 @app.route('/')
-def index():
-	all_tasks = Todo.query.all()
-	return render_template('mian.html', all_tasks)
+def main():
+	all_todo = Todo.query.all()
+	return render_template('main.html', all_todo= all_todo)
 
 
 @app.route('/add')
 def add():
-	new_Todo = Todo(name="New Task")
+	new_Todo = Todo(description="New Task",status = 'new' )
 	db.session.add(new_Todo)
 	db.session.commit()
 	return "Added new Todo to database"

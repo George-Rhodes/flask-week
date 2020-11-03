@@ -1,9 +1,10 @@
 <html>
 <body>
 <h1>To do list for the boys</h1>
-{% for tasks in todoList %}
-                <p> { tasks.task, tasks.complete} </p>
+{% block body %}
+{% for Todo in all_todo %}
+<p> {{Todo.id , Todo.descirption , Tdod.status}} </p>
 {% endfor %}
-
+{% endblock body %}
 </body>
 </html>
