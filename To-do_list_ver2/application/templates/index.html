@@ -1,0 +1,11 @@
+<html>
+	<body>
+		<h1> To Do List </h1>
+		{% for tasks in todoList %}
+	        <p> {{tasks.id, tasks.task, tasks.status}} </p>
+		{% endfor %}
+
+		{% block body %}
+		{% endblock body %}
+	</body>
+</html>
