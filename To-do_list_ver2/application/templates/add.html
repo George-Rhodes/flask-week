@@ -1,4 +1,14 @@
 {% extends "index.html" %}
 {% block body %}
-
+        <div class='form'>
+            <form method='POST' action=''>
+                {{ form.hidden_tag() }}
+                {{ form.Task.label }} {{ form.Task }}
+                <br>
+		{{ form.status.label }} {{ form.status }}
+                <br>
+                {{ form.submit }}
+            {{ message }}
+            </form>
+        </div>
 {% endblock body %}
