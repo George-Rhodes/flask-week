@@ -2,10 +2,14 @@
 	<body>
 		<h1> To Do List </h1>
 		{% for tasks in todoList %}
-	    <p> {{tasks.task, tasks.status}} </p>
+		{{tasks.task}}<br>
+		{% if tasks.status %}
+		&#9989
+	    {% endif %}
 		{% endfor %}
 
 		{% block body %}
+
 		{% endblock body %}
 	</body>
 </html>
