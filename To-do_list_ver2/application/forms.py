@@ -1,4 +1,4 @@
-from flask_wtf import dbFlaskForm
+from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, ValidationError
 from application.models import ToDoList
