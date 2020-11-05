@@ -1,15 +1,11 @@
-<html>
-	<body>
-		<h1> To Do List </h1>
-		{% for tasks in todoList %}
+{% extends "layout.html" %}
+
+{% block content %}
+{% for tasks in todoList %}
 		{{tasks.task}}<br>
 		{% if tasks.status %}
 		&#9989
-	    {% endif %}
+	    {% endif %}<br><br>
 		{% endfor %}
 
-		{% block body %}
-
-		{% endblock body %}
-	</body>
-</html>
+{% endblock content %}
