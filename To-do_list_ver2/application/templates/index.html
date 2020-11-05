@@ -2,7 +2,7 @@
 
 {% block content %}
 {% for tasks in todoList %}
-		{{tasks.task}}<br>
+		<br>{{tasks.task}}<br>
 		{% if tasks.status %}
 		&#9989 <br>
 		<a href="{{ url_for('incomplete', idNum=tasks.id) }}">change to incomplete</a>
