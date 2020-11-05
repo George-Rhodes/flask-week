@@ -5,10 +5,10 @@
 		{{tasks.task}}<br>
 		{% if tasks.status %}
 		&#9989 <br>
-		<a href="{{ url_for('/incomplete/tasks.id) }}">change to incomplete</a>
+		<a href="{{ url_for('incomplete', idNum=tasks.id) }}">change to incomplete</a>
 		{% else %}
 		&#x2702 <br>
-		<a href="{{ url_for('/complete/'tasks.id) }}">change to incomplete</a>
+		<a href="{{ url_for('complete', idNum=tasks.id) }}">change to incomplete</a>
 	    {% endif %}<br><br>
 		{% endfor %}
 
