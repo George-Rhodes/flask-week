@@ -33,7 +33,7 @@ def complete(idNum):
 @app.route('/incomplete/<idNum>')
 def incomplete(idNum):
 	task= ToDoList.query.get(idNum)
-	task.satus= False
+	task.status= False
 	db.session.commit()
 	return redirect(url_for('index'))
 
