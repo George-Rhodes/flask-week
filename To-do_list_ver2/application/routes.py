@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request
 from application import app, db
 from application.models import ToDoList
-from application.forms import TodoForm
+from application.forms import TodoForm, updateForm
 
 
 
@@ -39,7 +39,7 @@ def incomplete(idNum):
 
 @app.route('/update/<idNum>', methods=['POST', 'GET'])
 def update(idNum):
-	form = TodoForm()
+	form = updateForm()
 	task= ToDoList.query.get(idNum)
 	if form.validate_on_submit():
 		task.task=form.task.data

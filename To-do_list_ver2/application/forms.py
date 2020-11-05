@@ -15,9 +15,19 @@ class TodoCheck:
 			if todo.task == field.data:
 				raise ValidationError(self.message)
 
+
+
 class TodoForm(FlaskForm):
 	task = StringField('Task',
 		validators=[DataRequired(),
 		TodoCheck(message='Task already exists')])
 
 	submit = SubmitField('Add Todo')
+
+
+class updateForm(FlaskForm):
+	task = StringField('Task',
+		validators=[DataRequired(),
+		TodoCheck(message='Task already exists')])
+
+	submit = SubmitField('update Todo')
