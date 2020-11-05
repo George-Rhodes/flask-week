@@ -37,7 +37,7 @@ def incomplete(idNum):
 	db.session.commit()
 	return redirect(url_for('index'))
 
-@app.route('/update/<idNum>')
+@app.route('/update/<idNum>', methods=['POST', 'GET'])
 def update(idNum):
 	form = TodoForm()
 	task= ToDoList.query.get(idNum)
