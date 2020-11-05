@@ -7,7 +7,7 @@
 		&#9989 <br>
 		<a href="{{ url_for('incomplete', idNum=tasks.id) }}">change to incomplete</a>
 		{% else %}
-		&#x2702 <br>
+		&#x274C <br>
 		<a href="{{ url_for('complete', idNum=tasks.id) }}">change to complete</a>
 	    {% endif %}<br><br>
 		{% endfor %}
