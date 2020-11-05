@@ -48,7 +48,7 @@ def update(idNum):
 	elif request.method == 'GET':
 		form.task.data = task.task
 	
-	 return render_template('update.html', title='Update your todo', form=form)
+	return render_template('update.html', title='Update your todo', form=form)
 
 @app.route('/delete/<idNum>')
 def delete(idNum):
