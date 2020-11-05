@@ -1,9 +1,10 @@
 {% extends "index.html" %}
+<h2>Add To-do </h2>>
 {% block body %}
         <div class='form'>
             <form method='POST' action=''>
                 {{ form.hidden_tag() }}
-                {{ form.Task.label }} {{ form.Task }}
+                {{ form.task.label }} {{ form.task }}
                 <br>
                 {{ form.submit }}
             {{ message }}

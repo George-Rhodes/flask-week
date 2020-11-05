@@ -15,22 +15,25 @@ def add():
 	form = TodoForm()
 	if form.validate_on_submit():
 		
-		new_task= ToDoList(task=form.Task.data)
+		new_task= ToDoList(task=form.task.data)
 		db.session.add(new_task)
 		db.session.commit()
 		return redirect(url_for('index'))
 	return render_template ('add.html', form=form)
+
+
+
 @app.route('/complete/<idNum>')
 def complete(idNum):
 	task= ToDoList.query.get(idNum)
-	task.status= 'complete'
+	task.status= True
 	db.session.commit()
 	return redirect(url_for('index'))
 
 @app.route('/incomplete/<idNum>')
 def incomplete(idNum):
 	task= ToDoList.query.get(idNum)
-	task.satus= 'incomplete'
+	task.satus= False
 	db.session.commit()
 	return redirect(url_for('index'))
 
