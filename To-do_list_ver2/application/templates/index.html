@@ -9,7 +9,8 @@
 		{% else %}
 		&#x274C <br>
 		<a href="{{ url_for('complete', idNum=tasks.id) }}">change to complete</a>
-	    {% endif %}<br><br>
+		{% endif %}<br><br>
+		<br><a href="{{ url_for('update', idNum=tasks.id) }}">Update</a>
 		{% endfor %}
 
 {% endblock content %}
