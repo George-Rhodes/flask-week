@@ -2,7 +2,7 @@
 
 {% block content %}
 {% for tasks in todoList %}
-		<br>{{tasks.task}}<br>
+		<br>{{tasks.task}}
 		{% if tasks.status %}
 		&#9989 <br>
 		<a href="{{ url_for('incomplete', idNum=tasks.id) }}">change to incomplete</a>
@@ -10,7 +10,8 @@
 		&#x274C <br>
 		<a href="{{ url_for('complete', idNum=tasks.id) }}">change to complete</a>
 		{% endif %}<br><br>
-		<br><a href="{{ url_for('update', idNum=tasks.id) }}">Update</a><br>
+		<a href="{{ url_for('delete', idNum=tasks.id) }}">Delete</a><br>
+		<a href="{{ url_for('update', idNum=tasks.id) }}">Update</a><br>
 		<br>
 		{% endfor %}
 
