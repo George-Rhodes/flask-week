@@ -12,11 +12,11 @@ def index():
 	form = orderedForm()
 	totals = {"total": ToDoList.query.count(),
 			"totalCompleted" : ToDoList.query.filter_by(status=True).count()}
-	if form.orderedWith.data = "id":
+	if form.orderedWith.data == "id":
 		todoList = ToDoList.query.order_by(ToDoList.id.desc()).all()
-	elif form.orderedWith.data = "complete":
+	elif form.orderedWith.data == "complete":
 		todoList = ToDoList.query.order_by(ToDoList.status.desc()).all()
-	elif form.orderedWith.data = "incomplete":
+	elif form.orderedWith.data == "incomplete":
 		todoList = ToDoList.query.order_by(ToDoList.status).all()	
 	else:
 		todoList = ToDoList.query.all()
