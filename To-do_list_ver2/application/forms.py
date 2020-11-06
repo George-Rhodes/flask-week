@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
+from wtforms import StringField, SubmitField, SelectField
 from wtforms.validators import DataRequired, ValidationError
 from application.models import ToDoList
 
@@ -15,7 +15,16 @@ class TodoCheck:
 			if todo.task == field.data:
 				raise ValidationError(self.message)
 
-
+class orderedForm(FlaskForm):
+    orderedWith = SelectField('Order With',
+        choices=[
+            ("complete", "Completed"),
+            ("id", "Recent"),
+            ("old", "Old"),
+            ('incomplete', "Incomplete")
+        ]
+    )
+    submit = SubmitField('Order')
 
 class TodoForm(FlaskForm):
 	task = StringField('Task',

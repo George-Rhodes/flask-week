@@ -1,14 +1,26 @@
 from flask import Flask, render_template, redirect, url_for, request
 from application import app, db
 from application.models import ToDoList
-from application.forms import TodoForm, updateForm
+from application.forms import TodoForm, updateForm, orderedForm
 
 
 
 
-@app.route('/')
+@app.route('/', methods = ['GET', 'POST'])
 def index():
-    return render_template('index.html', todoList = ToDoList.query.all())
+
+	form = orderedForm()
+	totals = {"total": ToDoList.query.count(),
+			"totalCompleted" : ToDoList.query.filter_by(status=True).count()}
+	if form.orderedWith.data = "id":
+		todoList = ToDoList.query.order_by(ToDoList.id.desc()).all()
+	elif form.orderedWith.data = "complete":
+		todoList = ToDoList.query.order_by(ToDoList.status.desc()).all()
+	elif form.orderedWith.data = "incomplete":
+		todoList = ToDoList.query.order_by(ToDoList.status).all()	
+	else:
+		todoList = ToDoList.query.all()
+    return render_template('index.html', todoList = todoList, form=form, totals=totals)
 
 @app.route('/add', methods=['GET', 'POST'])
 def add():

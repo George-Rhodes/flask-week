@@ -1,6 +1,43 @@
 {% extends "layout.html" %}
 
 {% block content %}
+
+You have completed {{ totals['totalCompleted'] }} out of {{ totals['total'] }} todos.
+
+{% if totals['total'] == 0 %}
+   
+	<h3>Add some todos</h3>
+
+{% elif totals['totalCompleted'] == totals['total'] %}
+
+	<h3>Good Job!</h3>
+
+{% elif totals['totalCompleted'] <= totals['total'] - 3 %}
+
+	<h3>You're falling behind!</h3>
+
+{% endif %}
+
+
+
+
+
+
+
+
+<form action="{{ url_for('index') }}" method='POST'>
+	{{ form.orderedWith }}
+	{{ form.submit }}
+</form>
+
+
+
+
+
+
+
+
+
 {% for tasks in todoList %}
 		<br>{{tasks.task}}
 		{% if tasks.status %}
