@@ -8,10 +8,8 @@ from application.forms import TodoForm, updateForm, orderedForm
 
 @app.route('/', methods = ['GET', 'POST'])
 def index():
-
 	form = orderedForm()
-	totals = {"total": ToDoList.query.count(),
-			"totalCompleted" : ToDoList.query.filter_by(status=True).count()}
+	totals = {"total": ToDoList.query.count(), "totalCompleted" : ToDoList.query.filter_by(status=True).count()}
 	if form.orderedWith.data == "id":
 		todoList = ToDoList.query.order_by(ToDoList.id.desc()).all()
 	elif form.orderedWith.data == "complete":
@@ -20,7 +18,7 @@ def index():
 		todoList = ToDoList.query.order_by(ToDoList.status).all()	
 	else:
 		todoList = ToDoList.query.all()
-    return render_template('index.html', todoList = todoList, form=form, totals=totals)
+	return render_template('index.html', todoList = todoList, form=form, totals=totals)
 
 @app.route('/add', methods=['GET', 'POST'])
 def add():
